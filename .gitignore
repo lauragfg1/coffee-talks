@@ -1,0 +1,66 @@
+# Node modules and build artifacts
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing coverage reports
+/coverage
+
+# Production build output
+/build
+
+# Miscellaneous files
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE and build configuration
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# JetBrains (IntelliJ, WebStorm, etc.)
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Maven
+.mvn/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Spring Tool Suite (STS)
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# NetBeans
+/nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# VS Code
+.vscode/
+
+# Exclude application properties file if it's at the root level
+application.properties
+
+# Exclude help documentation
+HELP.md
