@@ -3,7 +3,6 @@ package com.example.germanTalks.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -13,7 +12,7 @@ public class Topic {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_topic", nullable = false)
+    @Column(name = "id_topic", nullable = false, unique = true)
     private Integer id;
 
     @Size(max = 45)
@@ -26,6 +25,14 @@ public class Topic {
 
     @OneToMany(mappedBy = "topic")
     private Set<Talk> talks = new LinkedHashSet<>();
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Set<Talk> getTalks() {
         return talks;

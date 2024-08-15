@@ -1,4 +1,5 @@
 package com.example.germanTalks.controller;
+
 import java.util.List;
 import com.example.germanTalks.model.Topic;
 import com.example.germanTalks.service.TopicService;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/topic")
 @CrossOrigin(origins = "http://localhost:3000")
-
 public class TopicController {
 
      @Autowired

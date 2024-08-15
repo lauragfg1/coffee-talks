@@ -1,4 +1,5 @@
 package com.example.germanTalks.service;
+
 import com.example.germanTalks.model.Topic;
 import com.example.germanTalks.repository.TopicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,6 @@ public class TopicServiceImpl implements TopicService {
 
     @Override
     public List<Topic> getAllTopics() {
-            return topicRepository.findAll();
+        return topicRepository.findAll();
     }
 }

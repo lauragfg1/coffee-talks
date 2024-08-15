@@ -19,8 +19,6 @@ public class LanguageController {
 
     @GetMapping("/getAll")
     public List<Language> getLanguages() {
-        System.out.println(languageService.getAllLanguages().toString());
-
         return languageService.getAllLanguages();
     }
 }
