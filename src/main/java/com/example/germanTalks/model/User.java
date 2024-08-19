@@ -1,5 +1,7 @@
 package com.example.germanTalks.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -42,6 +44,7 @@ public class User {
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "mother_tongue", nullable = false)
+    @JsonBackReference
     private Language motherTongue;
 
     @OneToMany(mappedBy = "user1")
@@ -49,6 +52,30 @@ public class User {
 
     @OneToMany(mappedBy = "user2")
     private Set<Talk> talks2 = new LinkedHashSet<>();
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
 
     public Set<Talk> getTalks() {
         return talks;
@@ -64,5 +91,10 @@ public class User {
 
     public void setMotherTongue(Language motherTongue) {
         this.motherTongue = motherTongue;
+    }
+
+    @JsonProperty("fullName")
+    public String getFullName() {
+        return name + " " + surname;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.germanTalks.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -21,6 +22,7 @@ public class Language {
     private String name;
 
     @OneToMany(mappedBy = "motherTongue")
+    @JsonBackReference
     private Set<User> users = new LinkedHashSet<>();
 
     public Set<User> getUsers() {
