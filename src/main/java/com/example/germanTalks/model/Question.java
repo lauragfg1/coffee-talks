@@ -1,5 +1,6 @@
 package com.example.germanTalks.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -14,9 +15,9 @@ public class Question {
     private Integer id;
 
 
-    @Size(max = 45)
+    @Size(max = 200)
     @NotNull
-    @Column(name = "question", nullable = false, length = 45)
+    @Column(name = "question", nullable = false, length = 200)
     private String question;
 
     @NotNull
@@ -27,6 +28,7 @@ public class Question {
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "topic", nullable = false)
+    @JsonBackReference
     private Topic topic;
 
 

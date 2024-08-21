@@ -1,5 +1,6 @@
 package com.example.germanTalks.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -20,7 +21,12 @@ public class Topic {
     @Column(name = "name", nullable = false, length = 45)
     private String name;
 
+    @Size(max = 25)
+    @Column(name = "german_name", nullable = false, length = 25)
+    private String german_name;
+
     @OneToMany(mappedBy = "topic")
+    @JsonManagedReference
     private Set<Question> questions = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "topic")
@@ -56,5 +62,13 @@ public class Topic {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getGerman_name() {
+        return german_name;
+    }
+
+    public void setGerman_name(String name) {
+        this.german_name = name;
     }
 }
