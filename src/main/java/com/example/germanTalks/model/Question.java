@@ -20,6 +20,10 @@ public class Question {
     @Column(name = "question", nullable = false, length = 200)
     private String question;
 
+    @Size(max = 200)
+    @Column(name = "english", length = 200)
+    private String english;
+
     @NotNull
     @Lob
     @Column(name = "difficulty", nullable = false)
@@ -31,6 +35,14 @@ public class Question {
     @JsonBackReference
     private Topic topic;
 
+
+    public void setEnglish(String english) {
+        this.english = english;
+    }
+
+    public String getEnglish() {
+        return english;
+    }
 
     public void setQuestion(String question) {
         this.question = question;

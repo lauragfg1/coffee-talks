@@ -25,12 +25,24 @@ public class Topic {
     @Column(name = "german_name", nullable = false, length = 25)
     private String german_name;
 
+    @Size(max = 200)
+    @Column(name = "video", length = 200)
+    private String video;
+
     @OneToMany(mappedBy = "topic")
     @JsonManagedReference
     private Set<Question> questions = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "topic")
     private Set<Talk> talks = new LinkedHashSet<>();
+
+    public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
+    }
 
     public Integer getId() {
         return id;

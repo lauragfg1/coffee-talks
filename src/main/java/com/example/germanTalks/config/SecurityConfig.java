@@ -17,7 +17,7 @@ public class SecurityConfig {
         return http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers( "/","question/getByTopic/**","/login**", "/oauth2/**", "/language/getAll", "/topic/getAll", "user/getAll", "/api/**").permitAll()
+                        .requestMatchers( "/","topic/getVideoUrlByTopic/**","question/getByTopic/**","/login**", "/oauth2/**", "/language/getAll", "/topic/getAll", "user/getAll", "/api/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .build();

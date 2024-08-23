@@ -16,4 +16,11 @@ public class TopicServiceImpl implements TopicService {
     public List<Topic> getAllTopics() {
         return topicRepository.findAll();
     }
+
+    @Override
+    public String getVideoUrlByTopicId(Integer topicId) {
+        return topicRepository.findById(topicId)
+                .map(Topic::getVideo)
+                .orElse(null);
+    }
 }

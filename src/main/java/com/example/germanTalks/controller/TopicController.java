@@ -4,10 +4,7 @@ import java.util.List;
 import com.example.germanTalks.model.Topic;
 import com.example.germanTalks.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/topic")
@@ -20,5 +17,15 @@ public class TopicController {
      @GetMapping("/getAll")
      public List<Topic> getAllTopics() {
          return topicService.getAllTopics();
+     }
+
+     @GetMapping("/getVideoUrlByTopic/{topicId}")
+     public String getVideoUrlByTopic(@PathVariable Integer topicId) {
+          String videoUrl = topicService.getVideoUrlByTopicId(topicId);
+          if (videoUrl != null) {
+               return videoUrl;
+          } else {
+               return "Not found";
+          }
      }
 }
