@@ -1,7 +1,6 @@
 package com.example.germanTalks.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -22,28 +21,22 @@ public class User {
     @Column(name = "name", nullable = false, length = 45)
     private String name;
 
-    @Size(max = 45)
-    @NotNull
-    @Column(name = "surname", nullable = false, length = 45)
-    private String surname;
 
     @Size(max = 45)
     @NotNull
     @Column(name = "mail", nullable = false, length = 45)
-    private String mail;
+    private String email;
 
-    @NotNull
-    @Column(name = "participation", nullable = false)
+    @Column(name = "participation")
     private Byte participation;
 
-    @NotNull
+
     @Lob
-    @Column(name = "level_german", nullable = false)
+    @Column(name = "level_german")
     private String levelGerman;
 
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "mother_tongue", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "mother_tongue")
     @JsonBackReference
     private Language motherTongue;
 
@@ -52,6 +45,9 @@ public class User {
 
     @OneToMany(mappedBy = "user2")
     private Set<Talk> talks2 = new LinkedHashSet<>();
+
+    public User() {
+    }
 
     public void setId(Integer id) {
         this.id = id;
@@ -69,16 +65,16 @@ public class User {
         return name;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
     public Set<Talk> getTalks() {
         return talks;
+    }
+
+    public void setEmail(@Size(max = 45) @NotNull String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public void setTalks(Set<Talk> talks) {
@@ -93,8 +89,4 @@ public class User {
         this.motherTongue = motherTongue;
     }
 
-    @JsonProperty("fullName")
-    public String getFullName() {
-        return name + " " + surname;
-    }
 }
