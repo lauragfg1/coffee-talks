@@ -9,7 +9,7 @@ public interface UserService {
 
     boolean userExistsByEmail(String email);
 
-    String findByEmail(String email);
+    User findByEmail(String email);
 
     void saveUser(User user);
 }

@@ -77,6 +77,14 @@ public class User {
         return email;
     }
 
+    public void setParticipation(Byte participation) {
+        this.participation = participation;
+    }
+
+    public Byte getParticipation() {
+        return participation;
+    }
+
     public void setTalks(Set<Talk> talks) {
         this.talks = talks;
     }
