@@ -23,4 +23,9 @@ public class TopicServiceImpl implements TopicService {
                 .map(Topic::getVideo)
                 .orElse(null);
     }
+
+    @Override
+    public Topic findByName(String topicName) {
+        return topicRepository.findByName(topicName);
+    }
 }

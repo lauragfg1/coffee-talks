@@ -8,4 +8,6 @@ import java.util.Optional;
 public interface TopicService {
     List<Topic> getAllTopics();
     String getVideoUrlByTopicId(Integer topicId);
+
+    Topic findByName(String topicName);
 }

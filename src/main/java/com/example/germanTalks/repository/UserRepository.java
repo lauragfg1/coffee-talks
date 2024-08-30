@@ -12,8 +12,12 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Integer> {
     boolean existsByEmail(String email);
     User findByEmail(String email);
-
+    User findByName(String name);
 
     @Query("SELECT u FROM User u WHERE u.participation = :participation")
     List<User> findAllParticipants(@Param("participation") byte participation);
+
+
+
+
 }

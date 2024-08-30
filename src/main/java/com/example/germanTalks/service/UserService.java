@@ -15,4 +15,5 @@ public interface UserService {
 
     List<User> getAllParticipants();
 
+    User findByName(String name);
 }

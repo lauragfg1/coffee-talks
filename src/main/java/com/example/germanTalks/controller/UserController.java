@@ -9,7 +9,6 @@ import com.example.germanTalks.model.Language;
 import com.example.germanTalks.model.User;
 import com.example.germanTalks.service.LanguageServiceImpl;
 import com.example.germanTalks.service.UserService;
-import com.example.germanTalks.service.LanguageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

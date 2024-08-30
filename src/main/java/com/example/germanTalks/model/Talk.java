@@ -2,6 +2,7 @@ package com.example.germanTalks.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 
 import java.time.Instant;
 
@@ -33,9 +34,19 @@ public class Talk {
     @Column(name = "date", nullable = false)
     private Instant date;
 
-    @NotNull
     @Column(name = "completed", nullable = false)
-    private Boolean completed;
+    private byte completed;
+
+    public Talk(Instant date, OidcUser user1, User user2, Topic topic) {
+        this.user1 = (User) user1;
+        this.user2 = user2;
+        this.topic = topic;
+        this.date = date;
+        this.completed =  (byte) 0;
+    }
+
+    public Talk() {
+    }
 
     public Integer getId() {
         return id;
@@ -45,11 +56,11 @@ public class Talk {
         this.id = id;
     }
 
-    public Boolean getCompleted() {
+    public byte getCompleted() {
         return completed;
     }
 
-    public void setCompleted(Boolean completed) {
+    public void setCompleted(byte completed) {
         this.completed = completed;
     }
 
