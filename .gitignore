@@ -65,3 +65,4 @@ application.properties
 
 # Exclude help documentation
 HELP.md
+/src/main/java/com/example/germanTalks/config/SecurityConfig.java
