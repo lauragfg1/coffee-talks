@@ -16,4 +16,9 @@ public class LanguageServiceImpl implements LanguageService {
     public List<Language> getAllLanguages() {
         return languageRepository.findAll();
     }
+
+    @Override
+    public Language findById(Integer id) {
+        return languageRepository.findById(id).orElse(null);
+    }
 }

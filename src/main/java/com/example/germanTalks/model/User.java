@@ -77,6 +77,14 @@ public class User {
         return email;
     }
 
+    public void setLevelGerman(String levelGerman) {
+        this.levelGerman = levelGerman;
+    }
+
+    public String getLevelGerman() {
+        return levelGerman;
+    }
+
     public void setParticipation(Byte participation) {
         this.participation = participation;
     }

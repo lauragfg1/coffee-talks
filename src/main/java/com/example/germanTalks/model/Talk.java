@@ -37,6 +37,14 @@ public class Talk {
     @Column(name = "completed", nullable = false)
     private Boolean completed;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public Boolean getCompleted() {
         return completed;
     }
