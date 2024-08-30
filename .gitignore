@@ -36,6 +36,7 @@ yarn-error.log*
 .mvn/
 !**/src/main/**/target/
 !**/src/test/**/target/
+target/
 
 # Spring Tool Suite (STS)
 .apt_generated
